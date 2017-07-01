@@ -5,14 +5,16 @@
   'abstracts/functions',
   'abstracts/mixins';
 
-@import './body',
-'./login-form',
-'./suggestions',
-'./planet',
-'./planet-list',
-'./search',
+@import 
+'./reset',
+'./body',
+'./media-queries',
+'./main',
+'./buttons',
+'./search-box',
+'./flight-header',
+'./flight-detail',
 './hr-star',
-'./content',
 './footer',
 './header',
 './section',

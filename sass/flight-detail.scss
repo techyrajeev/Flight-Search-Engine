@@ -1,0 +1,23 @@
+.fd-container {
+
+    border  : 1px solid #797676;
+    padding : .3em;
+    margin : .60em;
+
+    .flight-detail {
+        width   : 80%;
+        display : inline-block;
+        .flight-schedule {
+            width         : 50%;
+            display       : inline-block;
+            margin-top    : 10px;
+            margin-bottom : 10px;
+        }
+    }
+
+    .flight-book {
+        width   : 20%;
+        display : inline-block;
+    }
+}
+

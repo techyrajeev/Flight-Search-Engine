@@ -1,0 +1,28 @@
+@media all and (max-width : 768px) {
+    header {
+        text-align: center;
+    }
+
+    div#fse_container {
+        #content {
+            width   : 100%;
+        }
+        #sidebar {
+            width      : 96%;
+            padding    : 2%;
+            border-top : 3px solid #E64A19;
+        }
+    }
+
+    div.fd-container {
+        .flight-detail {
+            width: 100%;
+        }
+
+        >div.flight-book {
+            width   : 100%;
+            display : block;
+        }
+    }
+
+}

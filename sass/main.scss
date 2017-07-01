@@ -1,0 +1,22 @@
+#fse_container{
+    margin    : 0 auto;
+    max-width : 1200px;
+    > #content {
+        float      : right;
+        width      : 68%;
+        min-height : 580px;
+        border     : 1px solid #aca7a7;
+    }
+
+    aside {
+        float            : left;
+        padding          : 2%;
+        width            : 27%;
+        background-color : #eee;
+        border     : 1px solid #aca7a7;
+    }
+}
+
+
+
+

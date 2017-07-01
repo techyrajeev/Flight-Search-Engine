@@ -40,7 +40,7 @@ module.exports = {
             include : path.join(__dirname, 'sass')
         },
         {
-            test    : /\.png$/,
+            test    : /\.(png|jpg)$/,
             loader  : 'file'
         },
         {

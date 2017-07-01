@@ -1,30 +1,20 @@
-@mixin notfiy-gen($color_heading, $color_border, $color_background ) {
-    .heading {
-        color: $color_heading;
-        text-overflow: ellipsis;
-        text-transform:capitalize;
-        text-shadow: 1px 1px 3px $color_spicy_pink_31_approx;
-        text-align:left;
-        margin : 0 auto;
-    }
-
-    .content {
-        text-align:left;
-        margin-left:10px;
-        text-shadow: none;
-    }
-
-    .close {
-        float:right;
-        color:black;
-    }
-
-    padding: 10px;
-    border: 2px solid $color_border;
-    border-radius: 5px;
-    background: $color_background;
-    cursor:pointer;
-    transition: 0.5s;
+@mixin trans($val...) {
+	-webkit-transition : $val;
+	-moz-transition    : $val;
+	-o-transition      : $val;
+	transition         : $val;
 }
 
+@mixin btn-cta-theme($btn-color) {
+	background-color : $btn-color;
+	color            : white;
+	text-shadow      : 0 -1px 0 rgba(0, 0, 0, 0.25);
+    &:hover {
+        color            : darken($btn-color, 30%);
+        background-color : darken($btn-color, 5%);
+        text-decoration  : none;
+        cursor           : pointer;
+        text-shadow      : 0 -1px 0 lighten($btn-color, 10%);
+    }
+}
 

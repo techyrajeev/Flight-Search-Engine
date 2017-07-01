@@ -88,7 +88,6 @@
     "eslint-plugin-react": "^6.0.0",
     "jest": "^19.0.2",
     "jest-cli": "^19.0.2",
-    "jquery": "^3.2.1",
     "react-test-renderer": "^15.5.4",
     "webpack-dashboard": "^0.1.8"
   }

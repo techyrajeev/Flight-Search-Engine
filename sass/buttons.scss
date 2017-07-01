@@ -1,0 +1,35 @@
+.themebtn {
+	display                           : inline-block;
+    width                             : 100%;
+	margin                            : .5rem auto;
+	padding                           : .338em 0.075em;
+	border                            : .094em solid;
+	border-radius                     : .10em;
+	box-shadow                        : 0 .175em .013em -.313em rgba(black,.8), inset 0 .043em $off-wht, inset 0 -.128em rgba(black,.15);
+	color                             : #FFF;
+	font                              : normal 1.1rem sans-serif;
+	@include trans(0.2s ease-in-out);
+	text: {
+		decoration : none;
+		shadow     : 0 .063em rgba(black,.3);
+	}
+  cursor:pointer;
+}
+
+.btn-cta-prime {
+	@include btn-cta-theme($primary-cta);
+}
+
+.btn-cta-purple {
+	@include btn-cta-theme($purple);
+}
+.btn-cta-blue {
+	@include btn-cta-theme($blue);
+}
+.btn-cta-green {
+	@include btn-cta-theme($green);
+}
+.btn-cta-orange {
+	@include btn-cta-theme($orange);
+}
+
