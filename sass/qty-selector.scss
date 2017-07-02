@@ -1,0 +1,27 @@
+
+.qty-selector {
+    > select {
+        border        : 1px solid $color_mountain_mist;
+        border-radius : 3px;
+        display       : block;
+        width         : 100%;
+        background    : white;
+        padding       : 5px 35px 5px 5px;
+        font-size     : 1em;
+        height        : 2.2em;
+    }
+
+    /* CAUTION: IE hackery ahead */
+    select::-ms-expand { 
+        display: none; /* remove default arrow on ie10 and ie11 */
+    }
+
+    /* target Internet Explorer 9 to undo the custom arrow */
+    @media screen and (min-width:0\0) {
+        select {
+            background:none\9;
+            padding: 5px\9;
+        } 
+    }
+}
+

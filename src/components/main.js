@@ -2,7 +2,7 @@ import React            from 'react';
 import Header           from './header';
 import FlightsContainer from './flight/flights-container';
 import FlightHeader     from './flight/flight-header';
-import SearchBox        from './search/search-box';
+import SearchPage       from './search/search-page';
 import Footer           from './footer';
 
 export default class Main extends React.Component {
@@ -19,7 +19,7 @@ export default class Main extends React.Component {
                <div id="fse_container">
                    <Header />
                    <aside  id="sidebar">
-                       <SearchBox />
+                       <SearchPage />
                    </aside>
                     <section id="content">
                         <FlightHeader />

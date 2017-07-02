@@ -25,4 +25,22 @@
         }
     }
 
+    div.flight-header {
+        .flight-label {
+            width:100%;
+            display: block;
+        }
+
+        .flight-timings {
+            width:100%;
+            display: block;
+        }
+    }
+
+    div.search-box {
+        .btn-journey-type {
+            width:50%;
+        }
+    }
+
 }

@@ -18,3 +18,19 @@
     }
 }
 
+/********** Mixins for input-override ********/
+
+@mixin input-override(
+$ht:42px,$br:5px,$bw:2px,
+$bColor:$color_lochmara,$fs:18px,$lh:1.3333333
+){
+    height        : $ht;
+    border-radius : $br;
+    border        : solid $bw $bColor;
+    padding       : 5px 0px;
+    padding-left  : 5px;
+    font-size     : $fs;
+    line-height   : $lh;
+    display       : block;
+    width         : 98%;
+}

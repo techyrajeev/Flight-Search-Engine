@@ -1,4 +1,14 @@
 .flight-header {
-    border-bottom: 1px solid #aca7a7;
-    padding: 1.2em;
+    border-bottom : 1px solid #aca7a7;
+    padding       : 1.2em;
+    .flight-label {
+        width          : 70%;
+        display        : inline-block;
+        vertical-align : text-bottom;
+    }
+
+    .flight-timings {
+        width   : 30%;
+        display : inline-block;
+    }
 }
