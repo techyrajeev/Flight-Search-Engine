@@ -1,21 +1,24 @@
-import React     from 'react';
+import React           from 'react';
+import { dateToHours } from '../../utils/utility';
 
-const FlightDetail = ({}) => {
+const FlightDetail = ({airlineId, sourceAirportId, destAirportId,
+    scheduledDeparture, scheduledArrival}) => {
     return (
         <div className="flight-schedule">
             <h6>
-                AI-202
+                {airlineId}
             </h6>
             <p>
-                PNQ > DEL
+                { `${sourceAirportId } > ${destAirportId}` }
+            </p>
+            <p>
+                { `Depart: ${dateToHours(scheduledDeparture)}` }
             </p>
 
             <p>
-                Depart: 10.00 AM
+                {`Arrive: ${dateToHours(scheduledArrival)}`}
             </p>
-            <p>
-                Arrive: 12.00 PM
-            </p>
+
         </div>
     );
 };

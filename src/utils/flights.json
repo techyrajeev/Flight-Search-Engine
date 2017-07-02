@@ -1,0 +1,72 @@
+{
+    "flights": [
+        {
+            "airlineId"          : "AI-202",
+            "sourceAirportId"    : "PNQ",
+            "sourceCity"         : "Pune",
+            "destAirportId"      : "DEL",
+            "destCity"           : "Delhi",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-02T13:02:18.711Z",
+            "scheduledArrival"   : "2017-07-02T18:32:11.011Z",
+            "travelCost"         : 8600,
+            "totalSeats"         : 150,
+            "availableSeats"     : 5
+        },
+        {
+            "airlineId"          : "AI-202",
+            "sourceAirportId"    : "DEL",
+            "sourceCity"         : "Delhi",
+            "destAirportId"      : "PNQ",
+            "destCity"           : "Pune",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-12T14:12:18.711Z",
+            "scheduledArrival"   : "2017-07-12T19:35:10.011Z",
+            "travelCost"         : 5600,
+            "totalSeats"         : 250,
+            "availableSeats"     : 15
+        },
+        {
+            "airlineId"          : "SG-232",
+            "sourceAirportId"    : "DEL",
+            "sourceCity"         : "Delhi",
+            "destAirportId"      : "PNQ",
+            "destCity"           : "Pune",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-05T14:12:18.711Z",
+            "scheduledArrival"   : "2017-07-05T19:35:10.011Z",
+            "travelCost"         : 3600,
+            "totalSeats"         : 250,
+            "availableSeats"     : 15
+        },
+
+        {
+            "airlineId"          : "AI-312",
+            "sourceAirportId"    : "BOM",
+            "sourceCity"         : "Mumbai",
+            "destAirportId"      : "DEL",
+            "destCity"           : "Delhi",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-02T13:02:18.711Z",
+            "scheduledArrival"   : "2017-07-02T18:32:11.011Z",
+            "travelCost"         : 2600,
+            "totalSeats"         : 100,
+            "availableSeats"     : 50
+        },
+        {
+            "airlineId"          : "AI-202",
+            "sourceAirportId"    : "DEL",
+            "sourceCity"         : "Delhi",
+            "destAirportId"      : "BOM",
+            "destCity"           : "Mumbai",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-12T14:12:18.711Z",
+            "scheduledArrival"   : "2017-07-12T19:35:10.011Z",
+            "travelCost"         : 2600,
+            "totalSeats"         : 250,
+            "availableSeats"     : 15
+        }
+
+
+    ]
+}

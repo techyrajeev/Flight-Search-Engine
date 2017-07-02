@@ -1,27 +1,27 @@
-import Api                        from '../utils/api';
-import { UPDATE_SEARCH_RESULTS, TOGGLE_SUGGESTIONS }  from './action-types';
+import Api from '../utils/api';
+import { UPDATE_SEARCH_RESULTS, UPDATE_SEARCH_TERMS }  from './action-types';
 
-export function updateSearchResults(planets) {
+export function updateSearchResults(flights) {
     return {
         type : UPDATE_SEARCH_RESULTS,
-        planets
+        flights
     };
 }
 
-export function updateSuggestionsDisplay() {
+export function updateSearchTerms(searchTerms) {
     return {
-        type : TOGGLE_SUGGESTIONS,
-        showSuggestions : true
+        type : UPDATE_SEARCH_TERMS,
+        searchTerms
     };
 }
 
-export function search(searchTerm) {
+
+export function search(searchParams) {
     return dispatch => {
-        return Api.search(searchTerm)
+        return Api.search(searchParams)
             .then( res => {
-                console.log(JSON.stringify(res));
-                dispatch(updateSuggestionsDisplay());
-                dispatch(updateSearchResults(res.planets));
+                dispatch(updateSearchTerms(searchParams));
+                dispatch(updateSearchResults(res));
             });
     };
 }

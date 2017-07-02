@@ -1,4 +1,11 @@
-
 footer {
-    clear:both;
+    clear            : both;
+    width            : 94%;
+    padding          : 3%;
+    background-color : #FF5722;
 }
+footer #title {
+    font-size : 50px;
+    color     : #fff;
+}
+

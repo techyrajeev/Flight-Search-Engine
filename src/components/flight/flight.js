@@ -1,29 +1,23 @@
-import React     from 'react';
-import PropTypes from 'prop-types';
+import React        from 'react';
+import PropTypes    from 'prop-types';
 import FlightDetail from './flight-detail';
-import FlightBook from './flight-book';
-import Utlis     from '../../utils/utility';
+import FlightBook   from './flight-book';
 
 export default class Flight extends React.Component {
 
-    constructor(props) {
-        super(props);
+    getFlightPrice() {
+        const dep = this.props.dep;
+        const ret = this.props.ret;
+        return `Rs. ${(dep ?  dep.travelCost:0) + (ret ?  ret.travelCost:0)}`;
     }
 
     getFlightDetails() {
+        const dep = this.props.dep;
+        const ret = this.props.ret;
         return (
             <div>
-                <h6>
-                    AI-202
-                </h6>
-                <p>
-                    PNQ > DEL
-                </p>
-
-                <p>
-                    Depart: 10.00 AM
-                    Arrive : 12.00 PM
-                </p>
+                { dep ? <FlightDetail {...dep} /> : null }
+                { ret ? <FlightDetail {...ret} /> : null }
             </div>
         );
     }
@@ -32,11 +26,8 @@ export default class Flight extends React.Component {
         return (
             <div className="fd-container">
                 <div className="flight-detail">
-                    <h2> Rs 9,500.00 </h2>
-                    <div>
-                        <FlightDetail />
-                        <FlightDetail />
-                    </div>
+                    <h2>{this.getFlightPrice()} </h2>
+                    {this.getFlightDetails()}
                 </div>
                 <FlightBook />
             </div>
@@ -44,8 +35,3 @@ export default class Flight extends React.Component {
     }
 }
 
-//Planet.propType = {
-    //type : PropTypes.string.isRequired,
-    //title : PropTypes.string.isRequired,
-    //content : PropTypes.string.isRequired
-//};

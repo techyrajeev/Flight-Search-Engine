@@ -1,8 +1,7 @@
 import React            from 'react';
 import Header           from './header';
-import FlightsContainer from './flight/flights-container';
-import FlightHeader     from './flight/flight-header';
 import SearchPage       from './search/search-page';
+import FlightPage       from './flight/flight-page';
 import Footer           from './footer';
 
 export default class Main extends React.Component {
@@ -22,8 +21,7 @@ export default class Main extends React.Component {
                        <SearchPage />
                    </aside>
                     <section id="content">
-                        <FlightHeader />
-                        <FlightsContainer />
+                        <FlightPage />
                     </section>
                    <Footer />
                </div>

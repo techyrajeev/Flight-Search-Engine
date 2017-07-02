@@ -2,21 +2,23 @@ import React                   from 'react';
 import TextField               from '../common/text-field';
 import QtySelector             from '../common/qty-selector';
 import SpinButton              from '../common/spin-button';
-//import { connect }             from 'react-redux';
-//import { search }              from '../../actions/search-actions';
+import { connect }             from 'react-redux';
+import { search }              from '../../actions/search-actions';
 import { isEmpty, isEmptyObj } from '../../utils/utility';
-//import PropTypes               from 'prop-types';
+import PropTypes               from 'prop-types';
 
 class SearchForm extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            originCity     : '',
-            destCity       : '',
-            depDate        : '',
-            returnDate     : '',
-            noOfPassengers : 0,
+            searchParams : {
+                sourceCity     : '',
+                destCity       : '',
+                depDate        : '',
+                returnDate     : '',
+                noOfPassengers : 1,
+            },
             errors         : {},
             isLoading      : false
         };
@@ -24,30 +26,52 @@ class SearchForm extends React.Component {
         this.onChange           = this.onChange.bind(this);
         this.searchFlights      = this.searchFlights.bind(this);
         this.selectedPassengers = this.selectedPassengers.bind(this);
+        this.resetFormState     = this.resetFormState.bind(this);
     }
 
     onChange(e) {
+        const changes = {[e.target.name]: e.target.value};
+        this.setState((prevState) => {
+            return { searchParams  : {...prevState.searchParams , ...changes } };
+        });
+        //this.setState({
+            //[e.target.name]: e.target.value
+        //});
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.isOneWay != this.props.isOneWay) {
+            this.resetFormState();
+        }
+    }
+
+    resetFormState(){
         this.setState({
-            [e.target.name]: e.target.value
+            searchParams : {
+                sourceCity     : '',
+                destCity       : '',
+                depDate        : '',
+                returnDate     : '',
+                noOfPassengers : 1
+            },
+            errors         : {},
+            isLoading      : false
         });
     }
 
-    //componentDidUpdate() {
-        //this.props.search(this.state.searchTerm)
-            //.then((res) => console.log(res));
-        //console.log("Comp updated:"+this.state.searchTerm);
-    //}
-    //
-
     selectedPassengers(passengers) {
-        this.setState({selectedPassengers : passengers});
+        this.setState((prevState) => {
+            return { searchParams  : {...prevState.searchParams , selectedPassengers : passengers }};
+        });
     }
 
-    validateInput(state) {
+    validateInput(searchParams) {
         let errors = {};
 
-        Object.keys(state).forEach((stateKey) => {
-            isEmpty(state[stateKey]) ? (errors[stateKey] = `*required` ) : null;
+        Object.keys(searchParams)
+            .filter((stateKey) => this.props.isOneWay && stateKey != 'returnDate')
+            .forEach((stateKey) => {
+            isEmpty(searchParams[stateKey]) ? (errors[stateKey] = `*required` ) : null;
         });
 
         return {
@@ -57,7 +81,7 @@ class SearchForm extends React.Component {
     }
 
     isSearchValid() {
-        const { errors, isValid } = this.validateInput(this.state);
+        const { errors, isValid } = this.validateInput(this.state.searchParams);
 
         if (!isValid) {
             this.setState({ errors });
@@ -71,42 +95,31 @@ class SearchForm extends React.Component {
         if (this.isSearchValid()) {
             this.setState({errors : {}, isLoading : true});
 
-            this.props.login(this.state)
+            this.props.search(this.state.searchParams)
                 .then((res) => {
-                    this.context.router.push('search');
+                    console.log(JSON.stringify(res));
                 })
                 .catch((err) => {
-                    return err.response.json();
+                    console.log(JSON.stringify(err));
                 })
                 .then((err) => {
-                    this.setState({errors : err, isLoading : false});
+                    this.setState({isLoading : false});
                 });
         }
     }
 
     render() {
-        const { errors, originCity, destCity, depDate, returnDate, isLoading } = this.state;
+        const {sourceCity, destCity, depDate, returnDate} = this.state.searchParams;
+        const { errors, isLoading } = this.state;
+
         return (
             <form onSubmit={this.searchFlights} className="search-form">
-                {
-                    errors.errorDesc
-                        &&
-                    <div className="alert alert-danger">
-                        <a href="#" className="close"
-                            data-dismiss="alert"
-                            aria-label="close"
-                        >
-                            &times;
-                        </a>
-                        {errors.errorDesc}
-                    </div>
-                }
 
                 <TextField
-                    name     = "originCity"
-                    label    = "Enter Origin City"
-                    value    = {originCity}
-                    error    = {errors.originCity}
+                    name     = "sourceCity"
+                    label    = "Enter source City"
+                    value    = {sourceCity}
+                    error    = {errors.sourceCity}
                     onChange = {this.onChange}
                 />
 
@@ -128,7 +141,7 @@ class SearchForm extends React.Component {
                 />
 
             {
-                this.props.isOneWay
+                !this.props.isOneWay
                     ?
                         <TextField
                             name     = "returnDate"
@@ -155,9 +168,8 @@ class SearchForm extends React.Component {
     }
 }
 
-//SearchForm.propTypes = {
-    //search : PropTypes.func.isRequired
-//}
+SearchForm.propTypes = {
+    search : PropTypes.func.isRequired
+}
 
-export default SearchForm;
-//export default connect(null , { search })(SearchForm);
+export default connect(null , { search })(SearchForm);

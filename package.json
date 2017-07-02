@@ -54,7 +54,6 @@
     "jsdom": "^9.8.3",
     "json-loader": "^0.5.4",
     "jsonwebtoken": "^7.4.1",
-    "jwt-decode": "^2.2.0",
     "lodash": "^4.13.1",
     "node-sass": "^3.13.1",
     "prop-types": "^15.5.10",

@@ -10,8 +10,9 @@
         border-radius : 0;
     }
     .active {
-        background-color : #aea1a5;
-        border           : 2px solid #aea1a5;
+        background-color : $color_pale_slate;
+        border           : 2px solid $color_pale_slate;
         border-radius    : 0;
+        color            : black;
     }
 }

@@ -1,39 +1,44 @@
 import React       from 'react';
-import Planet      from './planet';
+import Flight      from './flight';
 import { connect } from 'react-redux';
 import PropTypes   from 'prop-types';
 
-class PlanetList extends React.Component {
+class FlightList extends React.Component {
 
     constructor(props) {
         super(props);
-        this.generatePlanetLists = this.generatePlanetLists.bind(this);
+        this.generateFlightLists = this.generateFlightLists.bind(this);
     }
 
-    generatePlanetLists() {
-        return (
-            this.props.selectedPlanets
-                .sort((p1, p2) => {
-                    let pnum1 = isNaN(parseInt(p1.population)) ? 0 : parseInt(p1.population)
-                    let pnum2 = isNaN(parseInt(p2.population)) ? 0 : parseInt(p2.population)
-                    return pnum1 - pnum2;
+    generateFlightLists() {
+        const departures = this.props.departures || [];
+        const returns    = this.props.returns || [];
+
+        return departures.length > 0
+        ? departures
+                .map((flight) => {
+                    let res =  [];
+                    if(returns.length > 0) {
+                        returns.forEach((retFlight) => {
+                            res.concat({dep: flight, ret : retFlight});
+                        });
+                        return [...res];
+                    } else {
+                        return {dep: flight}
+                    }
                 })
-                .map((planet, idx) => {
-                return (
-                    <Planet
-                        key    = {`nt-${planet.name}`}
-                        planet = { planet }
-                        index  = { idx }
-                    />
-                );
-            })
-        )
+                .map((flight) => {
+                    return (
+                        <Flight {...flight} />
+                    );
+                })
+        : null;
     }
 
     render() {
         return (
-            <div className="list-group">
-                { this.generatePlanetLists() }
+            <div>
+                { this.generateFlightLists() }
             </div>
         );
     }
@@ -41,8 +46,8 @@ class PlanetList extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        selectedPlanets : state.select.selectedPlanets
+        ...state.search
     };
 }
 
-export default connect(mapStateToProps)(PlanetList);
+export default connect(mapStateToProps)(FlightList);

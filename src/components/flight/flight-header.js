@@ -1,17 +1,37 @@
-import React        from 'react';
+import React       from 'react';
+import { connect } from 'react-redux';
+import PropTypes   from 'prop-types';
 
-const FlightHeader = ({}) => {
-    return (
+
+const FlightHeader = ({sourceCity, destCity, depDate, returnDate}) => {
+
+    const header = (
         <div className="flight-header">
             <div className="flight-label">
-                <h1> Pune > Delhi > Pune </h1>
+                <h1> {`${sourceCity} > ${destCity} ${ returnDate ? ' > '+sourceCity : '' }`} </h1>
             </div>
             <div className="flight-timings">
-                <p>Depart: 1 Jan 2017 </p>
-                <p>Arrive: 10 Jan 2017 </p>
+                <p>Depart: {`${depDate}`} </p>
+                { returnDate &&  <p>Arrive: {`${returnDate}`} </p> }
             </div>
         </div>
     );
+
+    const headerPlaceHolder = (
+        <div className="flight-header">
+            <div className="flight-label">
+                <h1> Your filght searches will be shown here. </h1>
+            </div>
+        </div>
+    );
+
+    return !sourceCity || !destCity ? headerPlaceHolder : header;
 };
 
-export default FlightHeader;
+function mapStateToProps(state) {
+    return {
+        ...state.searchTerms
+    };
+}
+
+export default connect(mapStateToProps)(FlightHeader);
