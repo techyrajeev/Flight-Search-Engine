@@ -1,7 +1,7 @@
 # Flight Search Engine
 
 ## Description
-A responsive web test project using react, redux, webpack, express, font-icons.
+A responsive web test project using react, redux,jest, enzyme, webpack, express, scss, font-icons.
 This project does not use libraries such as jquery, bootstrap.
 
 ### Requirement:
