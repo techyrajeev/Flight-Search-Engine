@@ -1,3 +1,4 @@
+import 'date-input-polyfill';
 import React                   from 'react';
 import TextField               from '../common/text-field';
 import QtySelector             from '../common/qty-selector';
@@ -81,7 +82,7 @@ class SearchForm extends React.Component {
         const { errors, isValid } = this.validateInput(this.state.searchParams);
 
         if (!isValid) {
-            this.setState({ errors });
+            this.setState({ errors, isLoading : false });
         }
 
         return isValid;
