@@ -11,28 +11,21 @@ class FlightList extends React.Component {
     }
 
     generateFlightLists() {
-        const departures = this.props.departures || [];
-        const returns    = this.props.returns || [];
 
-        return departures.length > 0
-        ? departures
-                .map((flight) => {
-                    let res =  [];
-                    if(returns.length > 0) {
-                        returns.forEach((retFlight) => {
-                            res.concat({dep: flight, ret : retFlight});
-                        });
-                        return [...res];
-                    } else {
-                        return {dep: flight}
-                    }
-                })
-                .map((flight) => {
-                    return (
-                        <Flight {...flight} />
-                    );
-                })
-        : null;
+        const data         = this.props.data || [];
+        const filteredData = this.props.filteredData || [];
+
+        return filteredData.length > 0
+        ? filteredData.map((flight) => {
+            return (
+                <Flight {...flight} />
+            );
+        })
+        : data.map((flight) => {
+            return (
+                <Flight {...flight} />
+            );
+        });
     }
 
     render() {
