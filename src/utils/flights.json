@@ -27,6 +27,33 @@
             "availableSeats"     : 15
         },
         {
+            "airlineId"          : "GH-142",
+            "sourceAirportId"    : "PNQ",
+            "sourceCity"         : "Pune",
+            "destAirportId"      : "DEL",
+            "destCity"           : "Delhi",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-02T13:02:18.711Z",
+            "scheduledArrival"   : "2017-07-02T18:32:11.011Z",
+            "travelCost"         : 4500,
+            "totalSeats"         : 150,
+            "availableSeats"     : 5
+        },
+        {
+            "airlineId"          : "JP-252",
+            "sourceAirportId"    : "DEL",
+            "sourceCity"         : "Delhi",
+            "destAirportId"      : "PNQ",
+            "destCity"           : "Pune",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-12T14:12:18.711Z",
+            "scheduledArrival"   : "2017-07-12T19:35:10.011Z",
+            "travelCost"         : 3020,
+            "totalSeats"         : 250,
+            "availableSeats"     : 15
+        },
+
+        {
             "airlineId"          : "SG-232",
             "sourceAirportId"    : "DEL",
             "sourceCity"         : "Delhi",

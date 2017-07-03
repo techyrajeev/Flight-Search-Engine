@@ -29,6 +29,17 @@ const FlightHeader = ({sourceCity, destCity, depDate, returnDate}) => {
                 <p>
                     Depart: 2017-07-02
                 </p>
+
+                Or
+
+                <p>
+                    Pune > Delhi > Pune
+                </p>
+                <p>
+                    Depart: 2017-07-02
+                    Arrive: 2017-07-12
+                </p>
+
             </div>
         </div>
     );
