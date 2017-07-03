@@ -58,10 +58,10 @@ npm run test
 
 ### 4. See running project in local browser 
  ###
-Open the Url(http://localhost:8080/) in browser
+Open the [localhost](http://localhost:8080/) Url() in browser
 
 ### 5. See live running project   
  ###
-Open the Url(https://flight-search-engine.herokuapp.com/) in browser
+Open the [Flight Search Engine ] (https://flight-search-engine.herokuapp.com/) in browser
 
 
