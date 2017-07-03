@@ -1,5 +1,3 @@
-const auth        = require('./server/auth-route');
-const search      = require('./server/search-route');
 const bodyParser  = require('body-parser');
 const express     = require('express');
 const path        = require('path');
@@ -33,8 +31,6 @@ if (process.env.NODE_ENV !== 'production') {
   const publicPath = express.static(path.join(__dirname, 'public'));
 
   app.use('/public', publicPath);
-  app.use('/api/login', auth);
-  app.use('/api/search', search);
   app.get('/', function (_, res) { res.sendFile(indexPathD) });
   app.get('*', function (_, res) { res.sendFile(indexPathD) });
 
@@ -42,8 +38,6 @@ if (process.env.NODE_ENV !== 'production') {
 
     const indexPath  = path.join(__dirname, 'public/index.html');
     app.use(publicPathS);
-    app.use('/api/login', auth);
-    app.use('/api/search', search);
     app.get('/', function (_, res) { res.sendFile(indexPath) });
     app.get('*', function (_, res) { res.sendFile(indexPath) });
 }

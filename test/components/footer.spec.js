@@ -8,4 +8,10 @@ describe("<Footer />", () => {
         const wrapper = shallow(<Footer />);
         expect(wrapper.type()).to.equal('footer');
     });
+
+    it("footer renders footer text correctly", () => {
+        const wrapper = shallow(<Footer />);
+        expect(wrapper.text()).to.equal('Flight Search Engine');
+    });
+
 });

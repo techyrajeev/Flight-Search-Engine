@@ -1,6 +1,7 @@
 import React       from 'react';
 import Flight      from './flight';
 import { connect } from 'react-redux';
+import { v4 }      from 'uuid';
 import PropTypes   from 'prop-types';
 
 class FlightList extends React.Component {
@@ -12,18 +13,19 @@ class FlightList extends React.Component {
 
     generateFlightLists() {
 
-        const data         = this.props.data || [];
-        const filteredData = this.props.filteredData || [];
+        const data           = this.props.data || [];
+        const filteredData   = this.props.filteredData || [];
+        const isFilterActive = this.props.isFilterActive;
 
-        return filteredData.length > 0
+        return isFilterActive
         ? filteredData.map((flight) => {
             return (
-                <Flight {...flight} />
+                <Flight {...flight} key={v4()} />
             );
         })
         : data.map((flight) => {
             return (
-                <Flight {...flight} />
+                <Flight {...flight} key={v4()} />
             );
         });
     }

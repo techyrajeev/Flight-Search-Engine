@@ -6,7 +6,7 @@ export default class Header extends React.Component {
         return (
             <header>
                <nav>
-                   Flight Search Engine
+                   <h2> <i className="material-icons md-36">flight_takeoff</i> Flight Search Engine </h2>
               </nav>
             </header>
         );

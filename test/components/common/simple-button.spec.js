@@ -1,7 +1,7 @@
 import React                      from 'react';
 import { expect }                 from 'chai';
 import { shallow, mount, render } from 'enzyme';
-import SimpleButton               from '../../../src/components/subcomp/simple-button';
+import SimpleButton               from '../../../src/components/common/simple-button';
 
 describe("<SimpleButton />", () => {
     it("SimpleButton has correct styles set", () => {

@@ -1,6 +1,6 @@
 import * as types from '../actions/action-types';
 
-const initialState = { data : [], filteredData : [] };
+const initialState = { data : [], filteredData : [], isFilterActive : false };
 
 function getFlightPrice(flight) {
     const dep = flight.dep;
@@ -9,27 +9,29 @@ function getFlightPrice(flight) {
 }
 
 function filterSearchResults(data, filterParams) {
-    const flightPrice = getFlightPrice(flight);
-    return data.fliter((flight) => filterParams.minPrice <= flightPrice  && flightPrice <= filterParams.maxPrice );
+    return data.filter((flight) => {
+        const flightPrice = getFlightPrice(flight);
+        return filterParams.min <= flightPrice  && flightPrice <= filterParams.max;
+    });
 }
 
 function updateSearchResults(flights) {
     const departures = flights.departures || [];
     const returns    = flights.returns || [];
 
-    return departures.length > 0
-        ? departures
-        .map((flight) => {
-            let res =  [];
-            if(returns.length > 0) {
-                returns.forEach((retFlight) => {
-                    res.concat({dep: flight, ret : retFlight});
-                });
-                return [...res];
-            } else {
-                return {dep: flight}
-            }
-        });
+    let result =  departures.map((flight) => {
+        let res =  [];
+        if(returns.length > 0) {
+            returns.forEach((retFlight) => {
+                res = res.concat([{dep: flight, ret : retFlight}]);
+            });
+            return res;
+        } else {
+            return [{dep: flight}]
+        }
+    });
+
+    return [].concat(...result);
 }
 
 function search(state = initialState, action) {
@@ -39,14 +41,16 @@ function search(state = initialState, action) {
     case types.UPDATE_SEARCH_RESULTS:
         return {
             ...state,
-            data : updateSearchResults(action.flights),
-            filteredData : []
+            isFilterActive : false,
+            data           : updateSearchResults(action.flights),
+            filteredData   : []
         };
 
     case types.FILTER_SEARCH_RESULTS:
       return {
           ...state,
-          filteredData : filterSearchResults(state.data)
+          isFilterActive : true,
+          filteredData   : filterSearchResults(state.data, action.filterParams)
       };
 
     default:

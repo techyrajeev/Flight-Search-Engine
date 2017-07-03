@@ -65,8 +65,32 @@
             "travelCost"         : 2600,
             "totalSeats"         : 250,
             "availableSeats"     : 15
+        },
+        {
+            "airlineId"          : "MI-612",
+            "sourceAirportId"    : "MAS",
+            "sourceCity"         : "Chennai",
+            "destAirportId"      : "DEL",
+            "destCity"           : "Delhi",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-03T14:02:18.711Z",
+            "scheduledArrival"   : "2017-07-03T16:32:11.011Z",
+            "travelCost"         : 2600,
+            "totalSeats"         : 100,
+            "availableSeats"     : 50
+        },
+        {
+            "airlineId"          : "KI-292",
+            "sourceAirportId"    : "DEL",
+            "sourceCity"         : "Delhi",
+            "destAirportId"      : "MAS",
+            "destCity"           : "Chennai",
+            "stops"              : 0,
+            "scheduledDeparture" : "2017-07-10T14:12:18.711Z",
+            "scheduledArrival"   : "2017-07-10T19:35:10.011Z",
+            "travelCost"         : 2600,
+            "totalSeats"         : 250,
+            "availableSeats"     : 15
         }
-
-
     ]
 }

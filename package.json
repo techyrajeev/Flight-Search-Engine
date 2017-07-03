@@ -1,5 +1,5 @@
 {
-  "name": "swapi_test",
+  "name": "flight_search_engine",
   "version": "1.0.0",
   "description": "\"Test Web App\"",
   "main": "server.js",
@@ -11,8 +11,9 @@
     "dash": "webpack-dashboard -- node server.js",
     "dev": "node server.js",
     "lint": "eslint src/. -c .eslintrc.json --ext .jsx",
-    "test": "cross-env mocha ./test/test-setup.js './test/**/*.spec.js' --compilers js:babel-core/register",
-    "test:watch": "npm test -- --watch"
+    "test": "NODE_ENV=test jest --config .jestrc --verbose",
+    "test:watch": "jest --config .jestrc --verbose --watch",
+    "test:coverage": "jest --config .jestrc --coverage"
   },
   "engines": {
     "node": "4.4.5"
@@ -50,15 +51,14 @@
     "express": "^4.15.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
-    "isomorphic-fetch": "^2.2.1",
     "jsdom": "^9.8.3",
     "json-loader": "^0.5.4",
-    "jsonwebtoken": "^7.4.1",
-    "lodash": "^4.13.1",
+    "lodash": "^4.17.4",
     "node-sass": "^3.13.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-input-range": "^1.1.4",
     "react-redux": "^5.0.5",
     "react-router": "^2.6.1",
     "react-router-redux": "^4.0.8",
@@ -71,6 +71,7 @@
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "uuid": "^3.1.0",
     "webpack": "^1.13.1",
     "webpack-dashboard": "^0.1.8",
     "webpack-dev-middleware": "^1.6.1",

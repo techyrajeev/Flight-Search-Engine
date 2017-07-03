@@ -1,0 +1,20 @@
+{
+    "setupFiles": ["./test/jestSetup.js"],
+    "roots" : ["<rootDir>/src/", "<rootDir>/test/"],
+    "transformIgnorePatterns": [
+        "<rootDir>/node_modules/"
+    ],
+    "modulePaths": [
+        "<rootDir>//node_modules/"
+    ],
+    "moduleFileExtensions": [
+        "js",
+        "jsx"
+    ],
+    "moduleNameMapper": {
+        "^react(.*)$"           : "<rootDir>/vendor/react-master$1",
+        "^config$"              : "<rootDir>/configs/app-config.js",
+        "\\.(css|less)$"        : "<rootDir>/__mocks__/styleMock.js",
+        "\\.(gif|ttf|eot|svg)$" : "<rootDir>/__mocks__/fileMock.js"
+    }
+}

@@ -34,9 +34,6 @@ class SearchForm extends React.Component {
         this.setState((prevState) => {
             return { searchParams  : {...prevState.searchParams , ...changes } };
         });
-        //this.setState({
-            //[e.target.name]: e.target.value
-        //});
     }
 
     componentWillReceiveProps(nextProps) {
@@ -92,13 +89,12 @@ class SearchForm extends React.Component {
 
     searchFlights(e) {
         e.preventDefault();
+
+        this.setState({errors : {}, isLoading : true});
+
         if (this.isSearchValid()) {
-            this.setState({errors : {}, isLoading : true});
 
             this.props.search(this.state.searchParams)
-                .then((res) => {
-                    console.log(JSON.stringify(res));
-                })
                 .catch((err) => {
                     console.log(JSON.stringify(err));
                 })

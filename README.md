@@ -1,20 +1,41 @@
-# Swapi-react
+# Flight Search Engine
 
 ## Description
-A test project using react,react-router, redux, webpack, express and star wars api.
-
-More details about star wars api can be found here - [Swapi](http://swapi.co/)
+A responsive web test project using react, redux, webpack, express, font-icons.
+This project does not use libraries such as jquery, bootstrap.
 
 ### Requirement:
 node : 6.x.x or above 
 npm : 3.x.x or above
+
+### data used for flights:
+There is a file called flight.json
+
+inside 
+```
+cd ~/<root-dir>/utils/
+```
+
+This file contains mockup data used to perform search on flights.
+Please refer to this file for making search query otherwise empty results will be shown.
+
+## Sample search data:
+
+### With returning journey:
+Chennai > Delhi > Chennai
+Depart: 2017-07-03
+Arrive: 2017-07-10
+
+### One way:
+Chennai > Delhi
+Depart: 2017-07-03
 
 ### Steps to run this project:
 
 First Go to Project directory
 
 ```
-cd ~/swapi-react
+cd ~/flight-search-engine
 ```
 then
 
